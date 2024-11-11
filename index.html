@@ -178,7 +178,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-11 11:44:45" itemprop="dateModified" datetime="2024-11-11T11:44:45+08:00">2024-11-11</time>
+      <time title="Modified: 2024-11-11 20:46:24" itemprop="dateModified" datetime="2024-11-11T20:46:24+08:00">2024-11-11</time>
     </span>
 
   
@@ -230,7 +230,8 @@
 <p><strong>第一次循环结束，此时的地图：</strong><br><img src="/image-5.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
 <h3 id="二，"><a href="#二，" class="headerlink" title="二，"></a>二，</h3><p>取openSet中F最小的节点（3，3）设为<font color="magenta">min</font>，将其移出openSet，加入<font color="gray">closedSet</font>。  </p>
 <p>查询<font color="magenta">min</font>的子节点，右边三个节点不可走，剩下五个都不是第一次找到，则需通过比较决定是否需要更新这些节点的父节点。<br>例如上方的（3，2）节点，<strong>经过min节点到达（3，2）节点的路径长度G为20，而（3，2）节点原本的路径（即经过原父节点到达该节点的路径）长度G为14</strong>，原本路径更短，则不需要更新父节点和G值。其余四个节点同理。  </p>
-<p><strong>第二次循环结束，此时的地图：</strong><br><img src="/image-6.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
+<p><strong>第二次循环结束，此时的地图：</strong><br><img src="/image-6.png" alt="alt text"></p>
+<p><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
 <h3 id="三，"><a href="#三，" class="headerlink" title="三，"></a>三，</h3><p><strong>下面来看第三次和第五次循环，注意节点（2，5）</strong>  </p>
 <p>第三次循环结束后的地图：<br><img src="/image-7.png" alt="alt text"><br>如上图，第三次循环查询了（3，4）节点，此时（2，5）的父节点为（3，4），G值为28  </p>
 <p>第五次循环结束后的地图：<br><img src="/image-8.png" alt="alt text"><br>如上图，第三次循环查询了（2，4）节点，当查找（2，4）的子节点，找到（2，5）时，由于（2，5）已有父节点，则进行比较。经过（2，4）节点到达（2，5）节点的G为20，比原G值小，则更新（2，5）的父节点为（2，4），G值为20，H值不变</p>
@@ -382,7 +383,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/2024/11/09/My-first-post/">
+    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/2024/11/09/MyFirstPost/My-first-post/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -400,7 +401,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/11/09/My-first-post/" class="post-title-link" itemprop="url">My first post</a>
+          <a href="/2024/11/09/MyFirstPost/My-first-post/" class="post-title-link" itemprop="url">My first post</a>
         </h2>
 
         <div class="post-meta-container">

@@ -111,7 +111,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -133,6 +133,242 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/2024/11/10/Algorithm-AStar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/10/Algorithm-AStar/" class="post-title-link" itemprop="url">Algorithm: AStar</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-10 14:18:01" itemprop="dateCreated datePublished" datetime="2024-11-10T14:18:01+08:00">2024-11-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-11 11:44:45" itemprop="dateModified" datetime="2024-11-11T11:44:45+08:00">2024-11-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Algorithm-AStar"><a href="#Algorithm-AStar" class="headerlink" title="Algorithm: AStar"></a><strong>Algorithm: AStar</strong></h1><p>注意：</p>
+<ol>
+<li>一切斜体字注“见后文”的真实存在性以实际为准，没有就是忘了&#x2F;懒</li>
+</ol>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><blockquote>
+<p>每个节点有三个属性，包括G、H、F，其中H就是AStar算法的启发式思想体现之处。每次从openSet中找出F最小的节点<font color="magenta">min</font>，移出openSet，加入<font color="gray">closedSet</font>。查询该节点的子节点，并<strong>更新子节点的属性</strong>，然后将子节点加入到openSet中。循环上述操作，直到<font color="magenta">min</font>&#x3D;<font color="blue">end</font>，结束循环。</p>
+<p>三个属性：</p>
+<blockquote>
+<ol>
+<li>G：实际代价，表示当前节点到出发点的实际距离</li>
+<li>H：预估代价，表示当前节点到终点的曼哈顿距离</li>
+<li>F：G+H</li>
+</ol>
+</blockquote>
+<p>两个数组：</p>
+<blockquote>
+<ol>
+<li>openSet：储存已经探索到且未查询的节点</li>
+<li><font color="gray">closedSet</font>：储存已查询的节点</li>
+</ol>
+</blockquote>
+<p>更新子节点属性方法：</p>
+<blockquote>
+<p>向<font color="gray">min</font>节点八个方向查找，如果可行走且未被查询过（即不在<font color="gray">closedSet</font>中），则计算并更新子节点的属性。<br>如果子节点没有父节点，说明该节点是第一次找到，则直接设置该节点的父节点为<font color="magenta">min</font>节点，子节点的G值等于父节点的G值加10或14（14为斜向距离，即根号2倍的10，为了方便计算直接取整）；<br>如果子节点已有父节点，说明该节点还有其它可达路径，则需要比较<strong>从<font color="magenta">min</font>节点到该节点的路径的G值</strong>和<strong>该节点原本路径的G值</strong>，如果经过<font color="magenta">min</font>节点的路径的G值更小，则更新该节点的父节点为<font color="magenta">min</font>节点，以及更新G值。<br>子节点的H有多种启发式函数可选：</p>
+<ol>
+<li>曼哈顿距离：节点与终点 横纵坐标之差 的绝对值 之和</li>
+<li>欧几里得距离：节点与终点的直线距离</li>
+<li>切比雪夫距离：在曼哈顿距离上多了斜向距离</li>
+</ol>
+<p>此处选择最简便的曼哈顿距离</p>
+</blockquote>
+</blockquote>
+<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/image-3.png" alt="alt text"><br><em>绿色是起点，蓝色是终点，左上角为（0，0），右、下为横、纵轴正方向</em></p>
+<h3 id="一，"><a href="#一，" class="headerlink" title="一，"></a>一，</h3><p>将<font color="green">start</font>加入openSet  </p>
+<p>取openSet中F最小的节点<font color="green">start</font>设为<font color="magenta">min</font>，将其移出openSet，加入<font color="gray">closedSet</font>。  </p>
+<p>查询min的子节点，八个节点都可走且都是第一次找到，则这八个节点都设置父节点为<font color="magenta">min</font>，更新属性  </p>
+<p><strong>第一次循环结束，此时的地图：</strong><br><img src="/image-5.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
+<h3 id="二，"><a href="#二，" class="headerlink" title="二，"></a>二，</h3><p>取openSet中F最小的节点（3，3）设为<font color="magenta">min</font>，将其移出openSet，加入<font color="gray">closedSet</font>。  </p>
+<p>查询<font color="magenta">min</font>的子节点，右边三个节点不可走，剩下五个都不是第一次找到，则需通过比较决定是否需要更新这些节点的父节点。<br>例如上方的（3，2）节点，<strong>经过min节点到达（3，2）节点的路径长度G为20，而（3，2）节点原本的路径（即经过原父节点到达该节点的路径）长度G为14</strong>，原本路径更短，则不需要更新父节点和G值。其余四个节点同理。  </p>
+<p><strong>第二次循环结束，此时的地图：</strong><br><img src="/image-6.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
+<h3 id="三，"><a href="#三，" class="headerlink" title="三，"></a>三，</h3><p><strong>下面来看第三次和第五次循环，注意节点（2，5）</strong>  </p>
+<p>第三次循环结束后的地图：<br><img src="/image-7.png" alt="alt text"><br>如上图，第三次循环查询了（3，4）节点，此时（2，5）的父节点为（3，4），G值为28  </p>
+<p>第五次循环结束后的地图：<br><img src="/image-8.png" alt="alt text"><br>如上图，第三次循环查询了（2，4）节点，当查找（2，4）的子节点，找到（2，5）时，由于（2，5）已有父节点，则进行比较。经过（2，4）节点到达（2，5）节点的G为20，比原G值小，则更新（2，5）的父节点为（2，4），G值为20，H值不变</p>
+<h3 id="四，"><a href="#四，" class="headerlink" title="四，"></a>四，</h3><p>按照以上步骤循环，直到从openSet取出的<font color="magenta">min</font>为<font color="blue">end</font>，则找到终点，结束循环，从终点处反向搜索Parent节点，将找出的路径标记为红色显示出来，到此AStar算法结束。</p>
+<p><strong>结束后的地图：</strong><br><img src="/image-9.png" alt="alt text"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/2024/11/09/Algorithm-Dijkstra/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/11/09/Algorithm-Dijkstra/" class="post-title-link" itemprop="url">Algorithm: Dijkstra</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-09 17:19:48" itemprop="dateCreated datePublished" datetime="2024-11-09T17:19:48+08:00">2024-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-10 14:07:10" itemprop="dateModified" datetime="2024-11-10T14:07:10+08:00">2024-11-10</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Algorithm-Dijkstra"><a href="#Algorithm-Dijkstra" class="headerlink" title="Algorithm: Dijkstra"></a><strong>Algorithm: Dijkstra</strong></h1><p>注意：</p>
+<ol>
+<li>此贴中算法为未经堆优化的DIjkstra算法，<em>堆优化版本见后文</em></li>
+<li>一切斜体字注“见后文”的真实存在性以实际为准，没有就是忘了&#x2F;懒</li>
+</ol>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><blockquote>
+<p>两个数组：</p>
+<blockquote>
+<ol>
+<li>openSet：储存已经探索到且未查询的节点</li>
+<li>closedSet：储存已查询的节点</li>
+</ol>
+</blockquote>
+<p>每次从openSet中找出到start节点的距离D最近的节点min，则到达min节点的最短路径已经确定，<br>将min移出openSet，加入closedSet。<br>接着<font color="white">查找min节点的子节点</font>，将其加入openSet中。<br>循环以上操作，直到取出的最近节点min为end节点，<br>退出循环。<br>查找子节点方法：</p>
+<blockquote>
+<p>向八个方向前进一步，如果节点在地图内且不是障碍物，且没有被查询过<br>（即isChecked&#x3D;false，确保每个节点只需要有一条路径可以到达它，这与在抽象的图中使用Dijkstra时有所不同，<em>分析见后文</em>），<br>则加入到openSet中，并设置新的节点的父节点为原节点。</p>
+</blockquote>
+</blockquote>
+<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/image.png" alt="alt text"></p>
+<h3 id="一，"><a href="#一，" class="headerlink" title="一，"></a>一，</h3><p>先将start加入到openSet，设置start的D为0，并且把start.isChecked设为true（这个的作用后文会解释），然后进入循环，循环条件为openSet的长度大于0（因为每次查询一个节点都会将该节点移出openSet，也就是说当openSet长度为0时所有可查询到节点到start的最短路径都找到了）。  </p>
+<p>遍历openSet找出距离D最小的节点，此时即为唯一的节点start，记为min，则start的最短路径已找到  </p>
+<p>移出openSet、加入closedSet  </p>
+<p>查找start的子节点  </p>
+<ul>
+<li>五个方向的子节点均不可走</li>
+<li>把右、下、右下节点加入openSet</li>
+</ul>
+<p>第一次循环结束  </p>
+<p><strong>此时openSet包含：（1,2）10，（2,1）10，（2,2）14（括号后数字为节点的D值）</strong>  </p>
+<p><img src="/image-1.png" alt="alt text"></p>
+<h3 id="二，"><a href="#二，" class="headerlink" title="二，"></a>二，</h3><p>遍历openSet找出距离D最小的节点，为节点（2,1）（或者（1,2），取决于哪个先被加入openSet），记为min，则（2,1）的最短路径已找到  </p>
+<p>移出openSet、加入closedSet  </p>
+<p>查找（2,1）的子节点  </p>
+<ul>
+<li>上三个方向的子节点不可走</li>
+<li>左、左下、下的节点不可走</li>
+<li>把右、右下的节点加入openSet</li>
+</ul>
+<p>第二次循环结束</p>
+<p><strong>此时openSet包含：（3,1），（2,1），（2,2），（3,2）</strong>  </p>
+<p><img src="/image-2.png" alt="alt text"></p>
+<h3 id="三，"><a href="#三，" class="headerlink" title="三，"></a>三，</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

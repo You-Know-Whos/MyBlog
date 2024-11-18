@@ -172,7 +172,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-11-18 20:34:29 / Modified: 20:34:47" itemprop="dateCreated datePublished" datetime="2024-11-18T20:34:29+08:00">2024-11-18</time>
+      <time title="Created: 2024-11-18 20:34:29 / Modified: 20:42:34" itemprop="dateCreated datePublished" datetime="2024-11-18T20:34:29+08:00">2024-11-18</time>
     </span>
 
   
@@ -250,7 +250,7 @@ title: 11.18
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-11 20:46:24" itemprop="dateModified" datetime="2024-11-11T20:46:24+08:00">2024-11-11</time>
+      <time title="Modified: 2024-11-11 21:05:43" itemprop="dateModified" datetime="2024-11-11T21:05:43+08:00">2024-11-11</time>
     </span>
 
   
@@ -295,20 +295,20 @@ title: 11.18
 <p>此处选择最简便的曼哈顿距离</p>
 </blockquote>
 </blockquote>
-<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/image-3.png" alt="alt text"><br><em>绿色是起点，蓝色是终点，左上角为（0，0），右、下为横、纵轴正方向</em></p>
+<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/project/image-3.png" alt="alt text"><br><em>绿色是起点，蓝色是终点，左上角为（0，0），右、下为横、纵轴正方向</em></p>
 <h3 id="一，"><a href="#一，" class="headerlink" title="一，"></a>一，</h3><p>将<font color="green">start</font>加入openSet  </p>
 <p>取openSet中F最小的节点<font color="green">start</font>设为<font color="magenta">min</font>，将其移出openSet，加入<font color="gray">closedSet</font>。  </p>
 <p>查询min的子节点，八个节点都可走且都是第一次找到，则这八个节点都设置父节点为<font color="magenta">min</font>，更新属性  </p>
-<p><strong>第一次循环结束，此时的地图：</strong><br><img src="/image-5.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
+<p><strong>第一次循环结束，此时的地图：</strong><br><img src="/project/image-5.png" alt="alt text"><br><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
 <h3 id="二，"><a href="#二，" class="headerlink" title="二，"></a>二，</h3><p>取openSet中F最小的节点（3，3）设为<font color="magenta">min</font>，将其移出openSet，加入<font color="gray">closedSet</font>。  </p>
 <p>查询<font color="magenta">min</font>的子节点，右边三个节点不可走，剩下五个都不是第一次找到，则需通过比较决定是否需要更新这些节点的父节点。<br>例如上方的（3，2）节点，<strong>经过min节点到达（3，2）节点的路径长度G为20，而（3，2）节点原本的路径（即经过原父节点到达该节点的路径）长度G为14</strong>，原本路径更短，则不需要更新父节点和G值。其余四个节点同理。  </p>
-<p><strong>第二次循环结束，此时的地图：</strong><br><img src="/image-6.png" alt="alt text"></p>
+<p><strong>第二次循环结束，此时的地图：</strong><br><img src="/project/image-6.png" alt="alt text"></p>
 <p><em>每个节点左上角为F值，左下角为G值，右下角为H值</em></p>
 <h3 id="三，"><a href="#三，" class="headerlink" title="三，"></a>三，</h3><p><strong>下面来看第三次和第五次循环，注意节点（2，5）</strong>  </p>
-<p>第三次循环结束后的地图：<br><img src="/image-7.png" alt="alt text"><br>如上图，第三次循环查询了（3，4）节点，此时（2，5）的父节点为（3，4），G值为28  </p>
-<p>第五次循环结束后的地图：<br><img src="/image-8.png" alt="alt text"><br>如上图，第三次循环查询了（2，4）节点，当查找（2，4）的子节点，找到（2，5）时，由于（2，5）已有父节点，则进行比较。经过（2，4）节点到达（2，5）节点的G为20，比原G值小，则更新（2，5）的父节点为（2，4），G值为20，H值不变</p>
+<p>第三次循环结束后的地图：<br><img src="/project/image-7.png" alt="alt text"><br>如上图，第三次循环查询了（3，4）节点，此时（2，5）的父节点为（3，4），G值为28  </p>
+<p>第五次循环结束后的地图：<br><img src="/project/image-8.png" alt="alt text"><br>如上图，第三次循环查询了（2，4）节点，当查找（2，4）的子节点，找到（2，5）时，由于（2，5）已有父节点，则进行比较。经过（2，4）节点到达（2，5）节点的G为20，比原G值小，则更新（2，5）的父节点为（2，4），G值为20，H值不变</p>
 <h3 id="四，"><a href="#四，" class="headerlink" title="四，"></a>四，</h3><p>按照以上步骤循环，直到从openSet取出的<font color="magenta">min</font>为<font color="blue">end</font>，则找到终点，结束循环，从终点处反向搜索Parent节点，将找出的路径标记为红色显示出来，到此AStar算法结束。</p>
-<p><strong>结束后的地图：</strong><br><img src="/image-9.png" alt="alt text"></p>
+<p><strong>结束后的地图：</strong><br><img src="/project/image-9.png" alt="alt text"></p>
 
       
     </div>
@@ -402,7 +402,7 @@ title: 11.18
 <p>向八个方向前进一步，如果节点在地图内且不是障碍物，且没有被查询过<br>（即isChecked&#x3D;false，确保每个节点只需要有一条路径可以到达它，这与在抽象的图中使用Dijkstra时有所不同，<em>分析见后文</em>），<br>则加入到openSet中，并设置新的节点的父节点为原节点。</p>
 </blockquote>
 </blockquote>
-<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/image.png" alt="alt text"></p>
+<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><h3 id="地图如图所示："><a href="#地图如图所示：" class="headerlink" title="地图如图所示："></a>地图如图所示：</h3><p><img src="/project/image.png" alt="alt text"></p>
 <h3 id="一，"><a href="#一，" class="headerlink" title="一，"></a>一，</h3><p>先将start加入到openSet，设置start的D为0，并且把start.isChecked设为true（这个的作用后文会解释），然后进入循环，循环条件为openSet的长度大于0（因为每次查询一个节点都会将该节点移出openSet，也就是说当openSet长度为0时所有可查询到节点到start的最短路径都找到了）。  </p>
 <p>遍历openSet找出距离D最小的节点，此时即为唯一的节点<font color="green">start</font>，记为<font color="magenta">min</font>，则<font color="green">start</font>的最短路径已找到  </p>
 <p>移出openSet、加入<font color="gray">closedSet</font>  </p>
@@ -413,7 +413,7 @@ title: 11.18
 </ul>
 <p>第一次循环结束  </p>
 <p><strong>此时openSet包含：（1,2）10，（2,1）10，（2,2）14（括号后数字为节点的D值）</strong>  </p>
-<p><img src="/image-1.png" alt="alt text"></p>
+<p><img src="/project/image-1.png" alt="alt text"></p>
 <h3 id="二，"><a href="#二，" class="headerlink" title="二，"></a>二，</h3><p>遍历openSet找出距离D最小的节点，为节点（2,1）（或者（1,2），取决于哪个先被加入openSet），记为<font color="magenta">min</font>，则（2,1）的最短路径已找到  </p>
 <p>移出openSet、加入<font color="gray">closedSet</font>  </p>
 <p>查找（2,1）的子节点  </p>
@@ -424,109 +424,11 @@ title: 11.18
 </ul>
 <p>第二次循环结束</p>
 <p><strong>此时openSet包含：（3,1），（2,1），（2,2），（3,2）</strong>  </p>
-<p><img src="/image-2.png" alt="alt text"></p>
+<p><img src="/project/image-2.png" alt="alt text"></p>
 <h3 id="三，"><a href="#三，" class="headerlink" title="三，"></a>三，</h3><p>经过循环n次后，当取出<font color="blue">end</font>节点时，循环结束，从终点处反向搜索Parent节点，将找出的路径标记为红色显示出来，到此Dijkstra算法结束。  </p>
 <p><strong>最终的地图：</strong></p>
-<p><img src="/image-10.png" alt="alt text"></p>
+<p><img src="/project/image-10.png" alt="alt text"></p>
 <h2 id="堆优化"><a href="#堆优化" class="headerlink" title="堆优化"></a>堆优化</h2><p>不难发现，这里每次循环中又会嵌套一个循环，用来查找D值最小的节点，这会使得算法的时间复杂度为O(n^2)，有些过长了。所以可以用“堆”这一数据结构来优化算法：使openSet成为小顶堆，那么我们每次循环只需要取出顶端的节点就是最小的了，然后每次加入新节点到openSet时维护一下堆的性质即可，这样时间复杂度就减少为了O(mlog(n))。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/project/2024/11/09/MyFirstPost/My-first-post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/project/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/project/2024/11/09/MyFirstPost/My-first-post/" class="post-title-link" itemprop="url">My first post</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-11-09 16:16:35" itemprop="dateCreated datePublished" datetime="2024-11-09T16:16:35+08:00">2024-11-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-11-11 21:38:40" itemprop="dateModified" datetime="2024-11-11T21:38:40+08:00">2024-11-11</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><img src="/image-11-1.png" alt="示例图片"><br><img src="/images/image-11.png" alt="alt text" title="s"></p>
-<h1 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h1><p>欢迎来到我的博客！在这里，我将分享我的学习和生活。</p>
-<h2 id="什么是-Markdown？"><a href="#什么是-Markdown？" class="headerlink" title="什么是 Markdown？"></a>什么是 Markdown？</h2><p>Markdown 是一种轻量级的标记语言，允许你使用简单的文本格式来创建结构化文档。它广泛用于编写文档、博客和网页。</p>
-<h3 id="Markdown-的基本语法"><a href="#Markdown-的基本语法" class="headerlink" title="Markdown 的基本语法"></a>Markdown 的基本语法</h3><ul>
-<li><strong>标题</strong>：使用 <code>#</code> 表示标题。</li>
-<li><strong>段落</strong>：直接输入文本。</li>
-<li><strong>列表</strong>：<ul>
-<li>无序列表项</li>
-<li>另一个项</li>
-</ul>
-</li>
-<li><strong>有序列表</strong>：<ol>
-<li>第一项</li>
-<li>第二项</li>
-</ol>
-</li>
-</ul>
-<h3 id="插入链接和图片"><a href="#插入链接和图片" class="headerlink" title="插入链接和图片"></a>插入链接和图片</h3><p>你可以插入链接，例如 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 或者插入图片：</p>
-<p><img src="https://via.placeholder.com/150" alt="示例图片"></p>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>如果你想插入代码，可以这样做：</p>
-<pre><code class="python">def hello_world():
-    print(&quot;Hello, world!&quot;)
-</code></pre>
 
       
     </div>
@@ -602,7 +504,105 @@ title: 11.18
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><img src="/image-11-1.png" alt="示例图片"><br><img src="/image/post1/image-11-1.png" alt="alt text"></p>
+          <p><img src="/project/image-11-1.png" alt="示例图片"><br><img src="/project/image/post1/image-11-1.png" alt="alt text"></p>
+<h1 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h1><p>欢迎来到我的博客！在这里，我将分享我的学习和生活。</p>
+<h2 id="什么是-Markdown？"><a href="#什么是-Markdown？" class="headerlink" title="什么是 Markdown？"></a>什么是 Markdown？</h2><p>Markdown 是一种轻量级的标记语言，允许你使用简单的文本格式来创建结构化文档。它广泛用于编写文档、博客和网页。</p>
+<h3 id="Markdown-的基本语法"><a href="#Markdown-的基本语法" class="headerlink" title="Markdown 的基本语法"></a>Markdown 的基本语法</h3><ul>
+<li><strong>标题</strong>：使用 <code>#</code> 表示标题。</li>
+<li><strong>段落</strong>：直接输入文本。</li>
+<li><strong>列表</strong>：<ul>
+<li>无序列表项</li>
+<li>另一个项</li>
+</ul>
+</li>
+<li><strong>有序列表</strong>：<ol>
+<li>第一项</li>
+<li>第二项</li>
+</ol>
+</li>
+</ul>
+<h3 id="插入链接和图片"><a href="#插入链接和图片" class="headerlink" title="插入链接和图片"></a>插入链接和图片</h3><p>你可以插入链接，例如 <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> 或者插入图片：</p>
+<p><img src="https://via.placeholder.com/150" alt="示例图片"></p>
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>如果你想插入代码，可以这样做：</p>
+<pre><code class="python">def hello_world():
+    print(&quot;Hello, world!&quot;)
+</code></pre>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://you-know-whos.github.io/project/2024/11/09/MyFirstPost/My-first-post/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/project/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/project/2024/11/09/MyFirstPost/My-first-post/" class="post-title-link" itemprop="url">My first post</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-09 16:16:35" itemprop="dateCreated datePublished" datetime="2024-11-09T16:16:35+08:00">2024-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-11 21:38:40" itemprop="dateModified" datetime="2024-11-11T21:38:40+08:00">2024-11-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="/project/image-11-1.png" alt="示例图片"><br><img src="/project/images/image-11.png" alt="alt text" title="s"></p>
 <h1 id="我的第一篇文章"><a href="#我的第一篇文章" class="headerlink" title="我的第一篇文章"></a>我的第一篇文章</h1><p>欢迎来到我的博客！在这里，我将分享我的学习和生活。</p>
 <h2 id="什么是-Markdown？"><a href="#什么是-Markdown？" class="headerlink" title="什么是 Markdown？"></a>什么是 Markdown？</h2><p>Markdown 是一种轻量级的标记语言，允许你使用简单的文本格式来创建结构化文档。它广泛用于编写文档、博客和网页。</p>
 <h3 id="Markdown-的基本语法"><a href="#Markdown-的基本语法" class="headerlink" title="Markdown 的基本语法"></a>Markdown 的基本语法</h3><ul>
